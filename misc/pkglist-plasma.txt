@@ -13,13 +13,15 @@ artix-qt-presets
 avahi-openrc
 b43-fwcutter
 base
+base-devel
 bluedevil
 bluez-openrc
 breeze
 breeze-gtk
 broadcom-wl
 btrfs-progs
-calamares-extensions
+chaotic-mirrorlist
+chaotic-keyring
 cronie-openrc
 cryptsetup-openrc
 cups-openrc
@@ -169,6 +171,7 @@ vulkan-radeon
 vulkan-swrast
 wacomtablet
 webp-pixbuf-loader
+wget
 which
 wireless-regdb
 wpa_supplicant-openrc
@@ -190,4 +193,5 @@ xfsprogs
 xorg-server
 xorg-xhost
 xorg-xinit
+yay
 zsh

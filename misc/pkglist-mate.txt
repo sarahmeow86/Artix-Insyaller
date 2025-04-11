@@ -22,7 +22,8 @@ caja-open-terminal
 caja-sendto
 caja-wallpaper
 caja-xattr-tags
-calamares-extensions
+chaotic-mirrorlist
+chaotic-keyring
 connman-gtk
 connman-openrc
 cronie-openrc
@@ -108,6 +109,7 @@ mpv
 nano
 nbd
 net-tools
+networkmanager-openrc
 nfs-utils-openrc
 ntfs-3g
 openntpd-openrc
@@ -144,6 +146,7 @@ vulkan-intel
 vulkan-radeon
 vulkan-swrast
 webp-pixbuf-loader
+wget
 which
 wireless-regdb
 wpa_supplicant-openrc
@@ -165,4 +168,5 @@ xfsprogs
 xorg-server
 xorg-xhost
 xorg-xinit
+yay
 zsh

@@ -11,7 +11,9 @@ b43-fwcutter
 base
 bluez-openrc
 btrfs-progs
-connman-openrc
+chaotic-mirrorlist
+chaotic-keyring
+cinnamon
 cronie-openrc
 cryptsetup-openrc
 dhclient

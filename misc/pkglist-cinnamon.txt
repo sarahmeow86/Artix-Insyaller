@@ -17,8 +17,6 @@ base-devel
 bluez-openrc
 broadcom-wl
 btrfs-progs
-chaotic-mirrorlist
-chaotic-keyring
 cinnamon
 cronie-openrc
 cryptsetup-openrc

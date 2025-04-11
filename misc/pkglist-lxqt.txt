@@ -12,11 +12,14 @@ artix-qt-presets
 avahi-openrc
 b43-fwcutter
 base
+base-devel
 bluez-openrc
 breeze-icons
 broadcom-wl
 btrfs-progs
-calamares-extensions
+chaotic-mirrorlist
+chaotic-keyring
+cinnamon
 cronie-openrc
 cryptsetup-openrc
 cups-openrc
@@ -135,6 +138,7 @@ vulkan-intel
 vulkan-radeon
 vulkan-swrast
 webp-pixbuf-loader
+wget
 which
 wireless-regdb
 wpa_supplicant-openrc
