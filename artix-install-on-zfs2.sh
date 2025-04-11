@@ -67,6 +67,9 @@ efiswap || error "Error setting up EFI and swap partitions!"
 
 # Installing packages
 installpkgs || error "Error installing packages!"
+fstab || error "Error creating fstab!"
+mkinitram || error "Error generating initramfs!"
+finishtouch || error "Error finalizing installation!"
 
 # System configuration
 configure_system || error "Error configuring the system!"

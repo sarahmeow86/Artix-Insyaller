@@ -32,7 +32,6 @@ fstab() {
 
     printf "%s\n" "${bold}fstab generated successfully!"
 }
-fstab || error "Error generating fstab" && exportpools
 
 
 mkinitram() {
@@ -58,7 +57,6 @@ EOF
 
     printf "%s\n" "${bold}mkinitcpio configuration and initramfs created successfully!"
 }
-mkinitram || error "Error creating new mkinitcpio"
 
 
 finishtouch() {
