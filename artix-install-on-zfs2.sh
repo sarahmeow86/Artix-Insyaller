@@ -69,9 +69,7 @@ efiswap || error "Error setting up EFI and swap partitions!"
 installpkgs || error "Error installing packages!"
 fstab || error "Error creating fstab!"
 mkinitram || error "Error generating initramfs!"
+# Configuring the system
 finishtouch || error "Error finalizing installation!"
-
-# System configuration
-configure_system || error "Error configuring the system!"
 
 printf "%s\n" "${bold}Installation completed successfully!"
