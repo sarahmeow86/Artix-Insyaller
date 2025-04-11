@@ -25,7 +25,7 @@ Please run it with sudo or as the root user." 10 50
 fi
 
 # Source individual scripts
-source .scripts/zfs-live.sh   # Handles Chaotic AUR and ZFS installation on the live system
+source ./scripts/zfs-live.sh   # Handles Chaotic AUR and ZFS installation on the live system
 source ./scripts/inst_var.sh       # Contains timezone, hostname, kernel, and disk selection
 source ./scripts/select-desktop-environment.sh # Handles desktop environment selection
 source ./scripts/disksetup.sh  # Handles disk partitioning
@@ -35,6 +35,10 @@ source ./scripts/configuration.sh # Handles system configuration (e.g., fstab, m
 # Main installation process
 printf "%s\n" "${bold}Starting the Artix installation process..."
 
+# Install ZFS on the live system
+./scripts/zfs-live.sh || error "Error installing ZFS on the live system!"
+
+# Set installation variables
 # Timezone selection
 installtz || error "Error selecting timezone!"
 
@@ -50,10 +54,15 @@ selectdisk || error "Error selecting disk!"
 # Desktop environment selection
 ./scripts/select-desktop-environment.sh || error "Error selecting desktop environment!"
 
+# Actual installation process
 # Partitioning
 partdrive || error "Error partitioning the drive!"
 
 # Formatting and mounting
+rootpool    || error "Error creating root pool!"
+createdatasets || error "Error creating datasets!"
+mountall || error "Error mounting filesystems!"
+permissions || error "Error setting permissions!"
 efiswap || error "Error setting up EFI and swap partitions!"
 
 # Installing packages

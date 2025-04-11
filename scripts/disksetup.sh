@@ -50,4 +50,3 @@ partdrive() {
 
     printf "%s\n" "${bold}Partitioning completed successfully!"
 }
-partdrive || error "Error setting up the drive!"

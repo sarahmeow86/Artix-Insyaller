@@ -77,7 +77,6 @@ installtz() {
     INST_TZ="/usr/share/zoneinfo/$region/$city"
     printf "%s\n" "${bold}Timezone set to $region/$city"
 }
-installtz || error "Error selecting timezone!"
 
 
 installhost() {
@@ -94,7 +93,7 @@ installhost() {
 
     printf "%s\n" "${bold}Hostname set to $INST_HOST"
 }
-installhost || error "Error setting hostname!"
+
 
 installkrn() {
     printf "%s\n" "${bold}Select the kernel you want to install"
@@ -114,7 +113,6 @@ installkrn() {
 
     printf "%s\n" "${bold}Kernel selected: $INST_LINVAR"
 }
-installkrn || error "Error selecting kernel!"
 
 
 selectdisk() {
@@ -142,4 +140,3 @@ selectdisk() {
     DISK="/dev/disk/by-id/$disk"
     printf "%s\n" "${bold}Disk selected: $DISK"
 }
-selectdisk || error "Disk doesn't exist!"

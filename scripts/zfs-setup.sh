@@ -45,7 +45,6 @@ rootpool() {
 
     printf "%s\n" "${bold}Root pool created successfully!"
 }
-rootpool || error "Error setting up the root pool"
 
 
 createdatasets() {
@@ -70,7 +69,6 @@ createdatasets() {
 
     printf "%s\n" "${bold}Datasets created successfully!"
 }
-createdatasets || error "Error creating the datasets"
 
 
 mountall() {
@@ -92,7 +90,6 @@ mountall() {
 
     printf "%s\n" "${bold}All datasets mounted successfully!"
 }
-mountall || error "Error mounting partitions!"
 
 
 permissions() {

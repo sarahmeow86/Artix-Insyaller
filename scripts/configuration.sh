@@ -78,11 +78,12 @@ finishtouch() {
         echo "Preparing installation scripts..."; sleep 1
         mkdir $INST_MNT/install
         cp zfs-openrc-20241023-1-any.pkg.tar.zst $INST_MNT/install/
-        awk -v n=5 -v s="INST_UUID=${INST_UUID}" 'NR == n {print s} {print}' artix-chroot.sh > artix-chroot-new.sh
-        awk -v n=6 -v s="DISK=${DISK}" 'NR == n {print s} {print}' artix-chroot-new.sh > artix-chroot-new2.sh
-        rm artix-chroot-new.sh
-        mv artix-chroot-new2.sh $INST_MNT/install/artix-chroot.sh
+        awk -v n=5 -v s="INST_UUID=${INST_UUID}" 'NR == n {print s} {print}' misc/artix-chroot.sh >  misc/artix-chroot-new.sh
+        awk -v n=6 -v s="DISK=${DISK}" 'NR == n {print s} {print}' misc/artix-chroot-new.sh >  misc/artix-chroot-new2.sh
+        rm misc/artix-chroot-new.sh
+        mv misc/artix-chroot-new2.sh $INST_MNT/install/artix-chroot.sh
         chmod +x $INST_MNT/install/artix-chroot.sh && echo "80"
         echo "Running final chroot script..."; sleep 1
         artix-chroot $INST_MNT /bin/bash /install/artix-chroot.sh && echo "100"
     ) | dialog --gauge "Finalizing installation..." 10 70 0
+}
