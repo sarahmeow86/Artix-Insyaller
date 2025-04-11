@@ -22,33 +22,6 @@ Please run it with sudo or as the root user." 10 50
     fi
 }
 
-selectdisk() {
-    printf "%s\n" "${bold}## Decide which disk you want to use"
-
-    # Generate a list of disks from /dev/disk/by-id
-    disk_list=$(ls -1 /dev/disk/by-id)
-
-    # Prepare the list for the whiptail menu
-    dialog_options=()
-    for disk in $disk_list; do
-        dialog_options+=("$disk" "Disk")
-    done
-
-    # Create a whiptail menu for disk selection with a larger box
-    disk=$(whiptail --title "Disk Selection" \
-        --menu "Choose a disk to use: DON'T USE PARTITIONS, THIS SCRIPT ASSUMES THE USE OF ONE DRIVE!!" 30 80 20 "${dialog_options[@]}" 3>&1 1>&2 2>&3)
-
-    # Check if the user selected a disk
-    if [[ -z "$disk" ]]; then
-        error "No disk selected!"
-    fi
-
-    # Set the selected disk
-    DISK="/dev/disk/by-id/$disk"
-    printf "%s\n" "${bold}Disk selected: $DISK"
-}
-selectdisk || error     "Cannot select disk"
-
 partdrive() {
     printf "%s\n" "${bold}Partitioning drive"
 

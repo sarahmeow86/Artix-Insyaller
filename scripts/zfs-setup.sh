@@ -119,3 +119,28 @@ permissions() {
     printf "%s\n" "${bold}Permissions set successfully!"
 }
 permissions || error "Wrong permissions!"
+
+efiswap() {
+    printf "%s\n" "${bold}Formatting and mounting boot, EFI system partition, and swap"
+
+    # Start the progress bar
+    (
+        echo "10"; sleep 1
+        echo "Creating swap partition..."; sleep 1
+        mkswap -L SWAP ${DISK}-part3 && echo "30"
+        echo "Activating swap partition..."; sleep 1
+        swapon ${DISK}-part3 && echo "50"
+        echo "Formatting EFI partition..."; sleep 1
+        mkfs.vfat -n EFI ${DISK}-part1 && echo "70"
+        echo "Mounting EFI partition..."; sleep 1
+        mkdir -p $INST_MNT/boot/efi && mount -t vfat ${DISK}-part1 $INST_MNT/boot/efi && echo "100"
+    ) | dialog --gauge "Setting up EFI and swap partitions..." 10 70 0
+
+    # Check if the EFI partition is mounted
+    if ! mount | grep -q "$INST_MNT/boot/efi"; then
+        error "EFI partition is not mounted!"
+    fi
+
+    printf "%s\n" "${bold}EFI and swap partitions set up successfully!"
+}
+efiswap || error "Error setting up EFI and swap partitions!"
