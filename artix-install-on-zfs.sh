@@ -37,9 +37,9 @@ chaoticaur() {
         echo "Updating package database..."; sleep 1
         pacman -Sy && echo "70"
         echo "Installing Chaotic AUR keyring..."; sleep 1
-        yes | LC_ALL=en_US.UTF-8 pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' && echo "85"
+        yes | LC_ALL=C pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' && echo "85"
         echo "Installing Chaotic AUR mirrorlist..."; sleep 1
-        yes | LC_ALL=en_US.UTF-8 pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' && echo "100"
+        yes | LC_ALL=C pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' && echo "100"
     ) | dialog --gauge "Installing Chaotic AUR..." 10 70 0
 
     # Check if the installation was successful
