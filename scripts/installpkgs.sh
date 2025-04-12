@@ -23,6 +23,7 @@ installpkgs() {
         basestrap $INST_MNT - < misc/pkglist.txt && echo "50"
         echo "Installing kernel and ZFS packages..."; sleep 1
         basestrap $INST_MNT $INST_LINVAR ${INST_LINVAR}-headers linux-firmware zfs-dkms-git zfs-utils-git && echo "80"
+        rm misc/pkglist.txt
         echo "Copying pacman configuration..."; sleep 1
         rm -rf $INST_MNT/etc/pacman.d
         rm $INST_MNT/etc/pacman.conf
