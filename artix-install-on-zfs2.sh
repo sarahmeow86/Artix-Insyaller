@@ -5,6 +5,12 @@ bold=$(tput setaf 2 bold)
 bolderror=$(tput setaf 3 bold)
 normal=$(tput sgr0)
 
+# Define the log file
+LOG_FILE="$(dirname "$0")/artix-install.log"
+
+# Redirect all output to the log file
+exec > >(tee -a "$LOG_FILE") 2>&1
+
 error() {
     printf "%s\n" "${bolderror}ERROR:${normal}\\n%s\\n" "$1" >&2
     exit 1
