@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# filepath: /home/sarah/git-projects/Artix installer/artix-installer.sh
+# filepath: /home/sarah/git-projects/Artix installer/artix-install-on-zfs2.sh
 
 bold=$(tput setaf 2 bold)
 bolderror=$(tput setaf 3 bold)
@@ -8,8 +8,8 @@ normal=$(tput sgr0)
 # Define the log file
 LOG_FILE="$(dirname "$0")/artix-install.log"
 
-# Redirect all output to the log file
-exec > >(tee -a "$LOG_FILE") 2>&1
+# Redirect stdout and stderr to the log file, but keep stdin connected to the terminal
+exec > >(tee -a "$LOG_FILE") 2> >(tee -a "$LOG_FILE" >&2)
 
 error() {
     printf "%s\n" "${bolderror}ERROR:${normal}\\n%s\\n" "$1" >&2
