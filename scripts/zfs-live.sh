@@ -38,7 +38,6 @@ chaoticaur() {
 
     printf "%s\n" "${bold}Chaotic AUR installed successfully!"
 }
-chaoticaur || error "Error installing Chaotic AUR!"
 
 
 addrepo() {
@@ -60,7 +59,6 @@ addrepo() {
 
     printf "%s\n" "${bold}Repositories added successfully!"
 }
-addrepo || error "Error adding repos!"
 
 
 installzfs() {
@@ -86,4 +84,3 @@ installzfs() {
 
     printf "%s\n" "${bold}Done!"
 }
-installzfs || error "Error installing ZFS!"
