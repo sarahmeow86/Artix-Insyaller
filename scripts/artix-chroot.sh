@@ -108,12 +108,12 @@ zfsbootmenu() {
     (
         echo "10"; sleep 1
         echo "Creating ZFSBootMenu directory..."; sleep 1
-        mkdir -p /boot/efi/EFI/zbm && echo "30"
+        mkdir -p /boot/efi/EFI/BOOT&& echo "30"
         echo "Downloading ZFSBootMenu EFI file..."; sleep 1
-        wget https://get.zfsbootmenu.org/latest.EFI -O /boot/efi/EFI/zbm/zfsbootmenu.EFI && echo "70"
+        curl -L https://get.zfsbootmenu.org/efi -o /boot/efi/EFI/BOOT/BOOTX64.EFI && echo "70"
         echo "Configuring EFI boot entry..."; sleep 1
         efibootmgr --disk ${DISK} --part 1 --create --label "ZFSBootMenu" \
-            --loader '\EFI\zbm\zfsbootmenu.EFI' \
+            --loader '\EFI\BOOT\BOOTX64.EFI' \
             --unicode "spl_hostid=$(hostid) zbm.timeout=3 zbm.prefer=zroot zbm.import_policy=hostid" --verbose && echo "100"
     ) | dialog --gauge "Installing ZFSBootMenu..." 10 70 0
 
