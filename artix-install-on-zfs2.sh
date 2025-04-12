@@ -32,7 +32,6 @@ source ./scripts/select-desktop-environment.sh # Handles desktop environment sel
 source ./scripts/disksetup.sh  # Handles disk partitioning
 source ./scripts/installpkgs.sh # Installs base system and packages
 source ./scripts/configuration.sh # Handles system configuration (e.g., fstab, mkinitcpio)
-source ./scripts/finishtouch.sh # Final touches and cleanup
 source ./scripts/zfs-setup.sh # Handles ZFS setup and dataset creation
 
 # Main installation process
