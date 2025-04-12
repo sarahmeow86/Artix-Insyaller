@@ -27,6 +27,7 @@ fi
 
 # Source individual scripts
 source ./scripts/zfs-live.sh   # Handles Chaotic AUR and ZFS installation on the live system
+source ./scripts/zfs-setup.sh       # Contains timezone, hostname, kernel, and disk selection
 source ./scripts/inst_var.sh       # Contains timezone, hostname, kernel, and disk selection
 source ./scripts/select-desktop-environment.sh # Handles desktop environment selection
 source ./scripts/disksetup.sh  # Handles disk partitioning
