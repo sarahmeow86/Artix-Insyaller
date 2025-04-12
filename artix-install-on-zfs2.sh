@@ -36,7 +36,9 @@ source ./scripts/configuration.sh # Handles system configuration (e.g., fstab, m
 printf "%s\n" "${bold}Starting the Artix installation process..."
 
 # Install ZFS on the live system
-./scripts/zfs-live.sh || error "Error installing ZFS on the live system!"
+chaoticaur || error "Error installing Chaotic AUR!"
+addrepo || error "Error adding repos!"
+installzfs || error "Error installing ZFS!"
 
 # Set installation variables
 # Timezone selection
@@ -52,7 +54,7 @@ installkrn || error "Error selecting kernel!"
 selectdisk || error "Error selecting disk!"
 
 # Desktop environment selection
-./scripts/select-desktop-environment.sh || error "Error selecting desktop environment!"
+select_desktop_environment || error "Error selecting desktop environment!"
 
 # Actual installation process
 # Partitioning
