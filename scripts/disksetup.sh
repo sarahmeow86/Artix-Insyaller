@@ -46,7 +46,5 @@ partdrive() {
     sgdisk -n1:0:+1G -t1:EF00 $DISK  # EFI System Partition
     sgdisk -n2:0:-${SWAP_SIZE}G -t2:BF00 $DISK  # ZFS Pool Partition
     sgdisk -n3:0:0 -t3:8308 $DISK  # Swap Partition
-    partprobe || true
-
     printf "%s\n" "${bold}Partitioning completed successfully!"
 }
