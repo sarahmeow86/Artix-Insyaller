@@ -127,8 +127,8 @@ selectdisk() {
         dialog_options+=("$disk" "Disk")
     done
 
-    # Create a whiptail menu for disk selection with a larger box
-    disk=$(whiptail --title "Disk Selection" \
+    # Create a dialog menu for disk selection with a larger box
+    disk=$(dialog --clear --title "Disk Selection" \
         --menu "Choose a disk to use: DON'T USE PARTITIONS, THIS SCRIPT ASSUMES THE USE OF ONE DRIVE!!" 30 80 20 "${dialog_options[@]}" 3>&1 1>&2 2>&3)
 
     # Check if the user selected a disk
