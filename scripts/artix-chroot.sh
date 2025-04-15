@@ -18,7 +18,7 @@ inststuff() {
         echo "Installing yay and git..."; sleep 1
         pacman -S --noconfirm --needed yay git && echo "50"
         echo "Installing base-devel and fakeroot..."; sleep 1
-        pacman -S --noconfirm --needed base-devel fakeroot && echo "70"
+        pacman -S --noconfirm --needed base-devel fakeroot dialog && echo "70"
         echo "Installing LightDM and Cinnamon..."; sleep 1
         pacman -S --noconfirm --needed lightdm lightdm-openrc lightdm-gtk-greeter cinnamon && echo "90"
         echo "Installing Brave browser..."; sleep 1
