@@ -64,13 +64,9 @@ partdrive || error "Error partitioning the drive!"
 
 # Formatting and mounting
 rootpool || error "Error creating root pool!"
-
 createdatasets || error "Error creating datasets!"
-
 mountall || error "Error mounting datasets!"
-
 efiswap || error "Error setting up EFI and swap partitions!"
-
 
 # Installing packages
 installpkgs || error "Error installing packages!"
