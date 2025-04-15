@@ -3,6 +3,9 @@ bold=$(tput setaf 2 bold)      # makes text bold and sets color to 2
 bolderror=$(tput setaf 3 bold) # makes text bold and sets color to 3
 normal=$(tput sgr0)            # resets text settings back to normal
 
+INST_MNT=$(mktemp -d)
+INST_UUID=$(dd if=/dev/urandom of=/dev/stdout bs=1 count=100 2>/dev/null |tr -dc 'a-z0-9' | cut -c-6)
+
 error() {\
     printf "%s\n" "${bolderror}ERROR:${normal}\\n%s\\n" "$1" >&2; exit 1;
 }
@@ -42,6 +45,12 @@ rootpool() {
         echo "Finalizing setup..."; sleep 1
         echo "100"
     ) | dialog --gauge "Setting up the ZFS root pool..." 10 70 0
+
+    # Check if the pool was created successfully
+    if ! zpool status rpool_$INST_UUID &>/dev/null; then
+        error "Error setting up the root pool!"
+    fi
+
     printf "%s\n" "${bold}Root pool created successfully!"
 }
 
