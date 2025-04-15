@@ -115,7 +115,7 @@ permissions() {
 
     printf "%s\n" "${bold}Permissions set successfully!"
 }
-permissions || error "Wrong permissions!"
+
 
 efiswap() {
     printf "%s\n" "${bold}Formatting and mounting boot, EFI system partition, and swap"
@@ -140,4 +140,3 @@ efiswap() {
 
     printf "%s\n" "${bold}EFI and swap partitions set up successfully!"
 }
-efiswap || error "Error setting up EFI and swap partitions!"
