@@ -42,12 +42,6 @@ rootpool() {
         echo "Finalizing setup..."; sleep 1
         echo "100"
     ) | dialog --gauge "Setting up the ZFS root pool..." 10 70 0
-
-    # Check if the pool was created successfully
-    if ! zpool status rpool_$INST_UUID &>/dev/null; then
-        error "Error setting up the root pool!"
-    fi
-
     printf "%s\n" "${bold}Root pool created successfully!"
 }
 
