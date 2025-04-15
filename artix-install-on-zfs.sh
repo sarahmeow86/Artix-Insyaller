@@ -25,6 +25,9 @@ Please run it with sudo or as the root user." 10 50
     exit 1
 fi
 
+INST_MNT=$(mktemp -d)
+INST_UUID=$(dd if=/dev/urandom of=/dev/stdout bs=1 count=100 2>/dev/null |tr -dc 'a-z0-9' | cut -c-6)
+
 # Source individual scripts
 source ./scripts/zfs-live.sh   # Handles Chaotic AUR and ZFS installation on the live system
 source ./scripts/zfs-setup.sh   # Handles ZFS setup and dataset creation

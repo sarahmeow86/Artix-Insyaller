@@ -2,10 +2,8 @@
 bold=$(tput setaf 2 bold)      # makes text bold and sets color to 2
 bolderror=$(tput setaf 3 bold) # makes text bold and sets color to 3
 normal=$(tput sgr0)            # resets text settings back to normal
-
-INST_MNT=$(mktemp -d)
-INST_UUID=$(dd if=/dev/urandom of=/dev/stdout bs=1 count=100 2>/dev/null |tr -dc 'a-z0-9' | cut -c-6)
-
+# Description: This script sets up ZFS for an Artix Linux system.
+#
 error() {\
     printf "%s\n" "${bolderror}ERROR:${normal}\\n%s\\n" "$1" >&2; exit 1;
 }
