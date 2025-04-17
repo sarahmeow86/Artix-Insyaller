@@ -97,7 +97,6 @@ pulseaudio-zeroconf
 qt5-imageformats
 qt6gtk2
 raw-thumbnailer
-reiserfsprogs
 rsync-openrc
 s-nail
 scrot
