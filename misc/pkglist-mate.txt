@@ -3,18 +3,14 @@ acpid-openrc
 alsa-firmware
 amd-ucode
 artix-branding-base
-artix-docs
-artix-grub-live
 artix-grub-theme
 artix-gtk-presets
-artix-live-openrc
 artix-qt-presets
 atril
 avahi-openrc
 b43-fwcutter
 base
 bluez-openrc
-broadcom-wl
 btrfs-progs
 caja
 caja-image-converter
@@ -22,8 +18,6 @@ caja-open-terminal
 caja-sendto
 caja-wallpaper
 caja-xattr-tags
-chaotic-mirrorlist
-chaotic-keyring
 connman-gtk
 connman-openrc
 cronie-openrc
@@ -31,6 +25,7 @@ cryptsetup-openrc
 cups-openrc
 dhclient
 dhcpcd-openrc
+dialog
 diffutils
 dmraid
 dosfstools
@@ -46,7 +41,6 @@ f2fs-tools
 fastfetch
 ffmpegthumbnailer
 ffmpegthumbs
-gparted
 grub
 gst-libav
 gst-plugins-bad
@@ -54,7 +48,6 @@ gst-plugins-good
 gst-plugins-ugly
 gvfs-mtp
 haveged-openrc
-hexchat
 inetutils
 intel-ucode
 inxi
@@ -101,7 +94,6 @@ memtest86+
 mesa
 metalog-openrc
 mkinitcpio
-mkinitcpio-nfs-utils
 mkinitcpio-openswap
 modemmanager
 mozo
@@ -109,7 +101,6 @@ mpv
 nano
 nbd
 net-tools
-networkmanager-openrc
 nfs-utils-openrc
 ntfs-3g
 openntpd-openrc
@@ -127,7 +118,6 @@ raw-thumbnailer
 rsync-openrc
 s-nail
 scrot
-squashfs-tools
 sudo
 sysfsutils
 terminus-font
@@ -140,13 +130,11 @@ ttf-roboto-mono
 tumbler
 usbutils
 vi
-virtualbox-guest-utils
 vkd3d
 vulkan-intel
 vulkan-radeon
 vulkan-swrast
 webp-pixbuf-loader
-wget
 which
 wireless-regdb
 wpa_supplicant-openrc
@@ -168,5 +156,4 @@ xfsprogs
 xorg-server
 xorg-xhost
 xorg-xinit
-yay
 zsh
