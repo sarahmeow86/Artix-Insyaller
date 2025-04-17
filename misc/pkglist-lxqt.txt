@@ -25,6 +25,7 @@ cryptsetup-openrc
 cups-openrc
 dhclient
 dhcpcd-openrc
+dialog
 diffutils
 dmraid
 dosfstools

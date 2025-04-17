@@ -41,26 +41,26 @@ source ./scripts/filesystem.sh # Handles filesystem selection and setup
 # Main installation process
 printf "%s\n" "${bold}Starting the Artix installation process..."
 
+# Desktop environment selection
+select_desktop_environment || error "Error selecting desktop environment!"
+
 # Choose filesystem
 choose_filesystem
+
+# Install Chaotic AUR and add arch repositories
+chaoticaur || error "Error installing Chaotic AUR!"
+addrepo || error "Error adding repos!"
 
 # Install ZFS on the live system (only if ZFS is selected)
 if [[ $FILESYSTEM == "zfs" ]]; then
     installzfs || error "Error installing ZFS!"
 fi
 
-# Install Chaotic AUR and add arch repositories
-chaoticaur || error "Error installing Chaotic AUR!"
-addrepo || error "Error adding repos!"
-
 # Set installation variables
 installtz || error "Error selecting timezone!"
 installhost || error "Error setting hostname!"
 installkrn || error "Error selecting kernel!"
 selectdisk || error "Error selecting disk!"
-
-# Desktop environment selection
-select_desktop_environment || error "Error selecting desktop environment!"
 
 # Partitioning
 partdrive || error "Error partitioning the drive!"
@@ -74,6 +74,10 @@ fstab || error "Error creating fstab!"
 mkinitram || error "Error generating initramfs!"
 
 # Configuring the system
-finishtouch || error "Error finalizing installation!"
+finishtouch || error "Error configuring the system!"
+
+# Chroot into the new system for further configuration
+prepare_chroot || error "Error preparing chroot environment!"
+run_chroot || error "Error running chroot script!"
 
 printf "%s\n" "${bold}Installation completed successfully!"
