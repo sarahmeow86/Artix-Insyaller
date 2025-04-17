@@ -1,4 +1,4 @@
-!#/usr/bin/env bash
+#!/usr/bin/env bash
 bold=$(tput setaf 2 bold)      # makes text bold and sets color to 2
 bolderror=$(tput setaf 3 bold) # makes text bold and sets color to 3
 normal=$(tput sgr0)            # resets text settings back to normal
@@ -37,7 +37,7 @@ inststuff || error "Error installing packages"
 
 addlocales() {
     # Extract all locales from the cleaned-up locale.gen file
-    locale_list=$(grep -v '^$' locale.gen | awk '{print $1}' | sort)
+    locale_list=$(grep -v '^$' misc/locale.gen | awk '{print $1}' | sort)
 
     # Prepare the list for the dialog menu
     dialog_options=()
