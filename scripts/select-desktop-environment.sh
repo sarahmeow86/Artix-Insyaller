@@ -42,7 +42,7 @@ select_desktop_environment() {
         *) error "Invalid choice or no selection made!" ;;
     esac
 
-    # Update the pkglist.txt symlink to point to the selected pkglist
+    # Copy pkglist-xxx.txt to pkglist.txt
     cp "misc/$PKGLIST" "misc/pkglist.txt" || error "Failed to update pkglist.txt!"
 
     printf "%s\n" "${bold}Desktop environment selected: $PKGLIST"
