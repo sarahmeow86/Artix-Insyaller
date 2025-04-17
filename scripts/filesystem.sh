@@ -29,7 +29,7 @@ setup_filesystem() {
             mount /dev/disk/by-id/$disk-part2 $INST_MNT || error "Failed to mount ext4 filesystem!"
             ;;
         btrfs)
-            mkfs.btrfs /dev/disk/by-id/$disk-part2 || error "Failed to format partition as btrfs!"
+            mkfs.btrfs -f /dev/disk/by-id/$disk-part2 || error "Failed to format partition as btrfs!"
             mount /dev/disk/by-id/$disk-part2 $INST_MNT || error "Failed to mount btrfs filesystem!"
 
             # Create Btrfs subvolumes
