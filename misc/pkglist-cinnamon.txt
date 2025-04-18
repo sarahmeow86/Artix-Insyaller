@@ -43,6 +43,7 @@ bluez
 bluez-libs
 bluez-openrc
 bluez-tools
+brave-bin
 breeze-icons
 brotli
 btrfs-progs
