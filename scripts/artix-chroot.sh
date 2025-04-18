@@ -205,7 +205,7 @@ enableservices() {
             echo "Enabling LightDM service..."; sleep 1
             rc-update add lightdm default && echo "30"
         else
-            echo "No display manager (SDDM or LightDM) found!"
+            echo "No display manager (SDDM or LightDM) found!" && echo "30"
         fi
 
         echo "Enabling D-Bus service..."; sleep 1
