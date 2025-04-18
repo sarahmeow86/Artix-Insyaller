@@ -94,6 +94,7 @@ device-mapper-openrc
 dhclient
 dhcpcd
 dhcpcd-openrc
+dialog
 diffutils
 ding-libs
 djvulibre
