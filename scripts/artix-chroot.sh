@@ -190,14 +190,24 @@ passwdroot() {
 }
 passwdroot || error "Error setting root password!"
 
-enablenableservices() {
+enableservices() {
     # Start the progress bar
     (
         echo "10"; sleep 1
         echo "Enabling NetworkManager service..."; sleep 1
         rc-update add NetworkManager default && echo "20"
-        echo "Enabling LightDM service..."; sleep 1
-        rc-update add lightdm default && echo "30"
+
+        # Check for display managers and enable the appropriate one
+        if command -v sddm &> /dev/null; then
+            echo "Enabling SDDM service..."; sleep 1
+            rc-update add sddm default && echo "30"
+        elif command -v lightdm &> /dev/null; then
+            echo "Enabling LightDM service..."; sleep 1
+            rc-update add lightdm default && echo "30"
+        else
+            error "No display manager (SDDM or LightDM) found!"
+        fi
+
         echo "Enabling D-Bus service..."; sleep 1
         rc-update add dbus default && echo "40"
         echo "Enabling Metalog service..."; sleep 1
@@ -219,7 +229,6 @@ enablenableservices() {
 
     printf "%s\n" "${bold}Services enabled successfully!"
 }
-enableservices || error "Error enabling services!"
 
 #Configure the bootloader based on the detected filesystem
 configure_bootloader
